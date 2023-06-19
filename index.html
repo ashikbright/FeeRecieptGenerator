@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ZAHRATHUL QURAN</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: inline-block;
+      width: 120px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 250px;
+      padding: 5px;
+    }
+
+    input[type="submit"] ,#printButton,input[type="reset"]{
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #receiptContainer {
+      margin-top: 20px;
+    }
+
+    .receipt {
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .receipt h3 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .receipt table {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .receipt table th,
+    .receipt table td {
+      padding: 5px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+
+    .receipt table th {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="school_logo.jpg" alt="School Logo" height="200" width="200">
+      <h1>ZAHRATHUL QURAN WOMENS COLLEGE</h1>
+    </div>
+    <h2>School Fee Receipt Generator</h2>
+    <form id="receiptForm">
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" required><br><br>
+
+      <label for="grade">Grade:</label>
+      <input type="text" id="grade" required><br><br>
+
+      <label for="feeDescription">Fee Description:</label>
+      <input type="text" id="feeDescription" required><br><br>
+
+      <label for="feeAmount">Fee Amount:</label>
+      <input type="number" id="feeAmount" required><br><br>
+
+      <input type="submit" value="Generate Receipt">&nbsp;&nbsp;
+      <input type="reset" id="resetButton" value="Reset">&nbsp;&nbsp;
+      <button id="printButton">Print Receipt</button>
+
+
+    </form>
+
+    <div id="receiptContainer" class="hidden">
+      <div id="studentReceipt" class="receipt">
+        <h3>Student Copy</h3>
+        <div class="receipt-header">
+          <img src="school_logo.jpg" alt="School Logo" height="200" width="200">
+          <h1>ZAHRATHUL QURAN WOMENS COLLEGE</h1>
+        </div>
+        <table>
+          <tr>
+            <th>Details</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td>Student Name:</td>
+            <td><span id="receiptStudentName"></span></td>
+          </tr>
+          <tr>
+            <td>Grade:</td>
+            <td><span id="receiptGrade"></span></td>
+          </tr>
+          <tr>
+            <td>Fee Description:</td>
+            <td><span id="receiptFeeDescription"></span></td>
+          </tr>
+          <tr>
+            <td>Fee Amount:</td>
+            <td>Rs.<span id="receiptFeeAmount"></span></td>
+          </tr>
+          <tr>
+            <td>Amount in Words:</td>
+            <td><span id="receiptAmountInWords"></span></td>
+          </tr>
+          <tr>
+            <td>Date:</td>
+            <td><span id="receiptDate"></span></td>
+          </tr>
+          <tr>
+            <td>Authorized Sign:</td>
+            <td><span id="authorizedSign"></span></td>
+          </tr>
+        </table>
+      </div>
+      <div id="institutionReceipt" class="receipt">
+        <h3>Institution Copy</h3>
+        <div class="receipt-header">
+          <img src="school_logo.jpg" alt="School Logo" height="200" width="200">
+          <h1>ZAHRATHUL QURAN WOMENS COLLEGE</h1>
+        </div>
+        <table>
+          <tr>
+            <th>Details</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td>Student Name:</td>
+            <td><span id="receiptStudentNameInstitution"></span></td>
+          </tr>
+          <tr>
+            <td>Grade:</td>
+            <td><span id="receiptGradeInstitution"></span></td>
+          </tr>
+          <tr>
+            <td>Fee Description:</td>
+            <td><span id="receiptFeeDescriptionInstitution"></span></td>
+          </tr>
+          <tr>
+            <td>Fee Amount:</td>
+            <td>Rs.<span id="receiptFeeAmountInstitution"></span></td>
+          </tr>
+          <tr>
+            <td>Amount in Words:</td>
+            <td><span id="receiptAmountInWordsInstitution"></span></td>
+          </tr>
+          <tr>
+            <td>Date:</td>
+            <td><span id="receiptDateInstitution"></span></td>
+          </tr>
+          <tr>
+            <td>Authorized Sign:</td>
+            <td><span id="authorizedSignInstitution"></span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="jspdf.umd.min.js"></script>
+  <script src="html2pdf.bundle.min.js"></script>
+</body>
+</html>
